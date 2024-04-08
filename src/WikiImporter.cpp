@@ -592,7 +592,7 @@ unordered_map<wstring, Article *> WikiImporter::readInArticles(const string& dat
 
     auto stop = chrono::high_resolution_clock::now();
     auto duration = stop - start;
-    wcout << duration.count() / 1000000000 << endl;
+    wcout << "Article loading time: " << duration.count() / 1000000000 << " seconds" << endl;
     wcout << "Articles Loaded: " << counter << endl;
 
 
