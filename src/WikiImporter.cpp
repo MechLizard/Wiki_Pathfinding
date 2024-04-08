@@ -520,7 +520,8 @@ WikiImporter::processDump(string inputFilename, string outputFilename, string ca
     // Find all the category tags in the file and assign them to their proper categories
 
     auto stop = chrono::high_resolution_clock::now();
-    wcout << "Article extraction time: " << duration_cast<chrono::seconds>(stop - start) << endl;
+    auto duration = stop - start;
+    wcout << "Article extraction time: " << duration.count() / 1000000000 << " seconds" << endl;
     return true;
 }
 
