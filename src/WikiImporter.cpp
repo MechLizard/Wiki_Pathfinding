@@ -45,9 +45,12 @@
  */
 
 // Efficiently compares the end of the given string to the suffix. Used for the </text> tag.
-bool WikiImporter::ends_with(std::wstring_view str, std::wstring_view suffix)
-{
+bool WikiImporter::ends_with(std::wstring_view str, std::wstring_view suffix){
     return str.size() >= suffix.size() && str.compare(str.size()-suffix.size(), suffix.size(), suffix) == 0;
+}
+
+bool WikiImporter::starts_with(std::wstring_view str, std::wstring_view prefix){
+    return str.size() >= prefix.size() && str.compare(0, prefix.size(), prefix) == 0;
 }
 
 // Handles titles/links with colons in it.
@@ -85,8 +88,8 @@ bool WikiImporter::colon_check(const wstring& line, wsmatch& match){
 
 // Some subtitles are extremely long [[File:...]] tags that crash the regex. Returns true if this is one of them.
 // Manually navigates through the line and returns true if the opening [[ is 500 characters before ]]
-bool longSubtitle (wstring &line){
-    if (!line.starts_with(L"[[File"))
+bool WikiImporter::longSubtitle (wstring &line){
+    if (!starts_with(line, L"[[File"))
         return false;
 
     // if the end of the tag is found within 500 characters then the tag isn't too long to process
@@ -108,7 +111,7 @@ void WikiImporter::articleVectorToFile(vector<Article*>& articles, wofstream& ou
     // Write the titles to the file
     for(Article* itr : articles){
         wstring title = itr->getTitle();
-        if (title.starts_with(L"Category:"))
+        if (starts_with(title, L"Category:"))
             outFile = &categoryOutFile;
         else
             outFile = &outputFile;
@@ -263,7 +266,7 @@ void WikiImporter::categoryAssignment(const string& processedFileName, const str
             }
 
             regex_search(line, match, linkSectionRegex);
-            if (match[1].str().starts_with(L"Category:")){
+            if (starts_with(match[1].str(), L"Category:")){
                 auto itr = articleMap.find(match[1]);
                 if (itr == articleMap.end())
                     wcout << "Category Not Found: " << match[1] << endl;
@@ -470,7 +473,7 @@ WikiImporter::processDump(string inputFilename, string outputFilename, string ca
 
                 // Check for '#' or ':' at the start (A link to the current page) and don't accept them
                 // # at start links to the current page while : at start is a special page that's not relevant
-                if (bracketText.starts_with(L"#") || bracketText.starts_with(L":")) {
+                if (starts_with(bracketText, L"#") || starts_with(bracketText, L":")){
                     searchStart = match.suffix().first; // Updates where to start searching for the next match.
                     continue;
                 }
@@ -588,8 +591,9 @@ unordered_map<wstring, Article *> WikiImporter::readInArticles(const string& dat
     dataFile.close();
 
     auto stop = chrono::high_resolution_clock::now();
-    wcout << "Article loading time: " << duration_cast<chrono::seconds>(stop - start) << endl;
-    wcout << "Total articles: " << counter << endl;
+    auto duration = stop - start;
+    wcout << duration.count() / 1000000000;
+    wcout << "Article loading time: " << counter << endl;
 
 
     return articleMap;
