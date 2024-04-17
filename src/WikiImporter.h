@@ -18,8 +18,8 @@ using namespace std;
 
 class WikiImporter {
 private:
-    static bool ends_with(std::wstring_view str, std::wstring_view suffix);
-    static bool starts_with(std::wstring_view str, std::wstring_view prefix);
+    static bool ends_with(wstring &str, wstring prefix);
+    static bool starts_with(wstring &str, wstring prefix);
     static bool longSubtitle(wstring &line);
     static bool colon_check(const wstring& line, wsmatch& match);
     static void articleVectorToFile(vector<Article*>& articles, wofstream& outputFile, wofstream& categoryOutFile);

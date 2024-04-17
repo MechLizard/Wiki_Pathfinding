@@ -45,11 +45,11 @@
  */
 
 // Efficiently compares the end of the given string to the suffix. Used for the </text> tag.
-bool WikiImporter::ends_with(std::wstring_view str, std::wstring_view suffix){
+bool WikiImporter::ends_with(wstring &str, wstring suffix){
     return str.size() >= suffix.size() && str.compare(str.size()-suffix.size(), suffix.size(), suffix) == 0;
 }
 
-bool WikiImporter::starts_with(std::wstring_view str, std::wstring_view prefix){
+bool WikiImporter::starts_with(wstring &str, wstring prefix){
     return str.size() >= prefix.size() && str.compare(0, prefix.size(), prefix) == 0;
 }
 
@@ -266,7 +266,8 @@ void WikiImporter::categoryAssignment(const string& processedFileName, const str
             }
 
             regex_search(line, match, linkSectionRegex);
-            if (starts_with(match[1].str(), L"Category:")){
+            wstring tempMatch = match[1].str();
+            if (starts_with(tempMatch, L"Category:")){
                 auto itr = articleMap.find(match[1]);
                 if (itr == articleMap.end())
                     wcout << "Category Not Found: " << match[1] << endl;
