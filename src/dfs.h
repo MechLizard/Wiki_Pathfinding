@@ -2,57 +2,67 @@
 #define DFS_H
 
 #include <unordered_map>
+#include <unordered_set>
 #include <stack>
 #include <optional>
+#include <iostream>
+#include <vector>
 #include "article.h"
 
 // Function to perform Depth-First Search
-// Returns true if a path exists from startTitle to targetTitle, false otherwise.
-std::optional<bool> DFS(std::unordered_map<std::wstring, Article*>& articles, 
-                        const std::wstring& startTitle, 
-                        const std::wstring& targetTitle) {
-    // Check if start and target articles exist in the map
-    if (articles.find(startTitle) == articles.end() || articles.find(targetTitle) == articles.end()) {
-        return std::nullopt; // Return empty optional if either article is not found
+// Returns true if a path exists from startArticle to targetArticle, false otherwise.
+bool recurseDFS(std::unordered_map<std::wstring, Article*>& articles,
+                        Article* startArticle,
+                        Article* targetArticle,
+                        vector<Article*> *path,
+                        unordered_set<Article*> *visited,
+                        int depth) {
+
+    int depthLimit = 15;
+
+    // Check if the start article exists
+    if (startArticle == nullptr)
+        return false;
+
+    // If the current article is the target, return the objects
+    if (startArticle->getTitle() == targetArticle->getTitle()) {
+        path->push_back(startArticle);
+        return true;
     }
 
-    std::unordered_map<std::wstring, bool> visited;
-    std::stack<std::wstring> stack;
+    // Check if the depth limit has been reached
+    if (depth == depthLimit)
+        return false;
 
-    // Mark all articles as not visited
-    for (auto& entry : articles) {
-        visited[entry.first] = false;
-    }
+    // Check if this article has been visited. If not, mark it visited
+    if(visited->find(startArticle) == visited->end())
+        visited->insert(startArticle);
+    else
+        return false;
 
-    // Push the start article onto the stack
-    stack.push(startTitle);
+    // Add this article to the current path
+    path->push_back(startArticle);
 
-    while (!stack.empty()) {
-        std::wstring currentTitle = stack.top();
-        stack.pop();
-
-        // If the current article is the target, return true
-        if (currentTitle == targetTitle) {
+    // Traverse all links of the current article
+    for (auto& link : *startArticle) {
+        if (recurseDFS(articles, articles[link.first], targetArticle, path, visited, depth + 1))
             return true;
-        }
-
-        // If the current article has not been visited yet
-        if (!visited[currentTitle]) {
-            visited[currentTitle] = true;
-
-            Article* currentArticle = articles[currentTitle];
-
-            // Traverse all links of the current article
-            for (auto& link : *currentArticle) {
-                // If the linked article has not been visited yet, push it onto the stack
-                if (!visited[link.first]) {
-                    stack.push(link.first);
-                }
-            }
-        }
     }
 
-    return false; // Return false if no path exists
+    // Pulling out of this path, so remove the last element from the vector
+    path->pop_back();
+    return false;
+}
+
+std::optional<std::vector<Article*>> DFS(std::unordered_map<std::wstring, Article*>& articles,
+                                         const std::wstring& startTitle,
+                                         const std::wstring& targetTitle) {
+    auto *path = new vector<Article*>;
+    auto *visited = new unordered_set<Article*>;
+    if (recurseDFS(articles, articles[startTitle], articles[targetTitle], path, visited, 0))
+        return *path;
+
+    return std::nullopt; // Return empty optional if no path exists
 }
 
 #endif // DFS_H

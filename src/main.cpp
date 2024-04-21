@@ -25,6 +25,7 @@ int main() {
 
     char proccessedInputfile[] = R"(articles.txt)";
 
+
     WikiImporter importer;
 
     // Load in all the created articles
