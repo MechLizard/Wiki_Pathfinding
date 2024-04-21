@@ -195,6 +195,14 @@ Izzy:
 Belal:
 
 Mohamad:
+- Became more experienced with frontend development. utilized HTML and CSS to structure and style the website's elements. Learning how to use CSS rules to customize the appearance of text, buttons, images, and other UI components.
+- Explored frontend frameworks and libraries like React.js, Vue.js, or Bootstrap to streamline development 
+- Understanding how to manipulate large datasets via exploring an optimized way to efficently store and process it all. For example utilizing hashmaps and unordered set.
+- Familarizing myself with Clion's Debugger, setting up breakpoints in the code and stepping through line by line during execuction
 
 ## References
+https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/
+https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/
+https://www.w3schools.com/html/html_images.asp
+https://www.w3schools.com/css/css3_images.asp
 TODO: Fill this out
