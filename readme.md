@@ -116,9 +116,9 @@ TODO: Flesh out Mohamad and Belal's contributions.
 
 - Izzy: Created file handling and data structure; created WikiImporter and Article classes.
   Administrative work for deliverables
-- Mohamad: Front-end interface with React. Work with Belal to implement the API with the C++ backend.
+- Mohamad: Worked with Belal to implement the styling of teh front-end.
   Implemented the BFS and DFS algorithms.
-- Belal: Back-end for C++. Connecting the different pieces together and working with Mohamad to implement an API for the React front-end.
+- Belal: Front-end with vite and react and Back-end with Nodejs with C++ Addon. Connecting the different pieces together and working with Mohamad to style teh front-end.
 
 ## Analysis
 TODO: Any changes the group made after the proposal? The rationale behind the changes.
