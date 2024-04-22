@@ -53,8 +53,9 @@ file can be imported significantly faster and is significantly smaller at ~16GB 
 ### Tools
 TODO: Fill this out more. Tools/Languages/APIs/Libraries
 
-C++ was used as the backend to handle the article objects and run the pathfinding algorithm.
-Vite and React is used on the front-end to interact with the user and display the results. While on the backen we utilized a Nodejs server with an express api that call on the C++ Addon file to run and compile the c++ code.
+- C++ was used as the backend to handle the article objects and run the pathfinding algorithm.
+- Vite and React is used on the front-end to interact with the user and display the results 
+- On the back-end we utilized a Nodejs server with an express api that call on the C++ Addon file to run and compile the c++ code.
 
 ## Algorithms Implemented
 
