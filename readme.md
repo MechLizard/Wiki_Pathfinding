@@ -35,14 +35,14 @@ Along with the main function, features include:
   which one is the quickest to find the target article.
 - Display the section that the links were found in.
 - Display whether a link is a redirect to another article.
+- On our website that we made, we've created the feature to randomize two articles into the search fields
 
 ## The Data
 TODO: Include the number of articles
-
 A dump of the English Wikipedia was provided by Wikipedia, which included every article (without revisions, images, or
-files) that was available at the time of the dump (January 20, 2024). ~91GB worth of text uncompressed.
+files) that was available at the time of the dump (January 20, 2024). ~91GB worth of text uncompressed. Approx --- articles were used here.
 
-A dump of the simplified English Wikipedia was used for testing as it was significantly smaller (~1GB).
+A dump of the simplified English Wikipedia was used for testing as it was significantly smaller (~1GB). Approx 370004 articles were used here.
 
 Dumps can be accessed here: https://dumps.wikimedia.org/
 
@@ -165,7 +165,24 @@ We had to use a simplified version of the wikipedia dataset because using the co
 
 ## Reflection
 TODO: As a group, how was the overall experience for the project?
+- The overall experience for the project was both challenging and insightful. Learning how to integrate the BFS and DFS   
+  search algorithms and handling how to manage memory when traversing large sets of wikipedia articles improved our   
+  software development abilites. Additionally, we were able to utilize problem-solving skills as shown with how we're able    to integrate a c++ backend with the css/html frontend rather than using javascript. Another example is how we weren't a 
+  able to use a tool that would be able process all those wikipedia articles. Moreover, we've learned new technolgies   
+  while setting up the web server. We also learned how team roles aren't often fixed, things change due to variables as     
+  well as the approaching deadline.
+
 TODO: Did you have any challenges? If so, describe.
+- Izzy had a couple of obstacles processing the wikipedia dump. The sheer number of articles often made other online tools    unuseable as they would often stop proccessing at a point. The solution to this was make his own. Additionally, we had to   compromise by utilizing a simplified article text file instead of the entire article file as its too big for our other      team members and often took way too long to run through in our terminal.
+
+- Belal had issues making his c++ backend and react front end compatabile. This is an issue because building a website with   a c++ backend often requires needing to build an api that is able to fetch the necessary functions. They were also issues   figuring out how to implement seach bars in c++ as this typically done with javascript.
+
+- Mohamed had trouble with the BFS and DFS returning a path and integrating it with the main function. Most of the time     
+  they were just syntatical blunders and hurdles like the program inserting an article into the visited list before being 
+  checked if it exists but one huge problem was having the pass-by-reference actually work. This involved modifying the   
+  function signatures and parameter passing mechanisms to ensure that large data structures, such as the unordered_map 
+  containing Wikipedia articles, were passed by reference rather than by value.
+  
 TODO: If you were to start once again as a group, any changes you would make to the project and/or workflow?
 - After the near completion of this project, we found that there were pre-processed files of the Wikipedia dump that were
   optimized for this kind of project on GitHub. That would reduce the needed code base for the WikiImporter module.
