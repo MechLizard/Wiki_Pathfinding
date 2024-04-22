@@ -123,6 +123,8 @@ TODO: Flesh out Mohamad and Belal's contributions.
 ## Analysis
 TODO: Any changes the group made after the proposal? The rationale behind the changes.
 
+We had to use a simplified version of the wikipedia dataset because using the complete version would often lead to working yet incredibly slow results due to how massive it is. Additionally, some of us didn't have enough storage in our PC to even handle a file that large. Moreover, we think using the simplified version gets the point across well on how our program operated.
+
 #### Worst Case Big O of Major Functions:
 - **WikiImporter::processDump:** Processes the raw dump of Wikipedia and outputs it into a processed file.
     - **O((n * m) + (l*log(l) + l) + a)** where:
