@@ -2,20 +2,16 @@ import React, { useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import './SearchBar.css';
 
-export const SearchBar = ({ onSearch, placeholder }) => {
-  // Call the onSearch prop function directly on change
-  const handleChange = (e) => {
-      onSearch(e.target.value); // Update the parent component's state on change
-  };
-
+export const SearchBar = ({ onSearch, placeholder, value }) => {
+  // Use the value prop in the input element
   return (
-      <div className="input-wrapper">
-        <FaSearch id="search-icon" />
-        <input
-          placeholder={placeholder}
-          onChange={handleChange} // Passes the changed value up to the App component
-          // ... rest of the attributes
-        />
-      </div>
+    <div className="input-wrapper">
+      <FaSearch id="search-icon" />
+      <input
+        placeholder={placeholder}
+        onChange={(e) => onSearch(e.target.value)}
+        value={value} // Use the value prop to reflect changes
+      />
+    </div>
   );
 };

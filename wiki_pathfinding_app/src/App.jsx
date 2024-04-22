@@ -33,16 +33,38 @@ function App() {
       setResults('Failed to fetch results.');
     }
   };
+  
+  const handleRandomArticles = async () => {
+    try {
+      const response = await axios.get('http://localhost:3000/random-articles');
+      setOrigin('');
+      setDestination('');
+      setOrigin(response.data.origin);
+      setDestination(response.data.destination);
+    } catch (error) {
+      console.error("Failed to fetch random articles:", error);
+    }
+  };
+  
 
   return (
     <div className="App">
       <div className="search-bar-container">
-        <SearchBar onSearch={(value) => setOrigin(value)} placeholder="Enter origin..." />
-        <SearchBar onSearch={(value) => setDestination(value)} placeholder="Enter destination..." />
+        <img src="wiki.png" height="150" /> {/* Add closing angle bracket */}
+        <h1 className="title">Wiki Game Solver</h1> {/* Add class name for styling */}
+        <p className="subtext">Find the shortest path between any given wiki article through both DFS and BFS</p>
+    <div className="search-label"></div>
+        <SearchBar onSearch={(value) => setOrigin(value)} placeholder="Enter origin..." value={origin}/>
+        <div className="search-label" style={{ marginTop: "8px" }}></div> {/* Add margin-top style */}
+        <SearchBar onSearch={(value) => setDestination(value)} placeholder="Enter destination..." value={destination}/>
         <button onClick={handleSearch}>Search</button>
-        <div>
-          <pre>{results}</pre>
-        </div>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <button onClick={handleRandomArticles} className="random-button">
+          <i className="fa-solid fa-shuffle"></i>
+        </button>
+      </div>
+      <div className="results-container">
+        <pre>{results}</pre>
       </div>
     </div>
   );

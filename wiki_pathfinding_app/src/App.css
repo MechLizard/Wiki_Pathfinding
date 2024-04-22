@@ -13,3 +13,67 @@
   align-items: center;
   min-width: 200px;
 }
+
+.title {
+  font-size: 2.5em; /* Make the font size big */
+  font-weight: bold; /* Make the font bold */
+  font-family: 'Albertus Nova Black', sans-serif; /* Use Albertus Nova Black font */
+}
+
+/* Styling for the subtext */
+.subtext {
+  font-size: 1.2em; /* Adjust font size */
+  font-style: italic; /* Make it italic */
+  margin-top: 0.1px; /* Adjust margin top */
+}
+
+/* Styling adjustments */
+.search-bar-container {
+  padding-top: 10vh; /* Adjust the padding for better positioning */
+}
+
+/* Styling for the search button */
+button {
+  background-color: #ff6f61; /* Fun color */
+  color: white; /* Text color */
+  padding: 10px 20px; /* Add some padding for better appearance */
+  border: none; /* Remove default button border */
+  border-radius: 20px; /* Add rounded corners */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  transition: background-color 0.3s; /* Smooth transition for background color change */
+  font-family: 'Albertus Nova', sans-serif; /* Use Albertus Nova font */
+  margin-top: 20px; /* Lower the button by adding margin at the top */
+}
+
+/* Hover effect for the search button */
+button:hover {
+  background-color: #ff5446; /* Darker shade of fun color on hover */
+}
+
+/* Styling for the shuffle button */
+.fa-shuffle {
+  font-size: 20px; /* Adjust font size */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  transition: color 0.3s; /* Smooth transition for color change */
+  cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.results-container {
+  margin: 20px auto;
+  padding: 20px;
+  width: 80%;
+  max-width: 600px; /* Adjust based on your preference */
+  background-color: white; /* Background color for the results box */
+  border: 2px solid #ccc; /* Border around the results */
+  border-radius: 10px; /* Rounded corners for the box */
+  text-align: center; /* Center the text */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: add some shadow for depth */
+  overflow-wrap: break-word; /* Ensure the text breaks properly */
+}
+
+.results-container pre {
+  white-space: pre-wrap; /* Since <pre> preserves white space, this ensures it wraps */
+  word-wrap: break-word; /* Breaks the word to prevent horizontal scrolling */
+  text-align: left; /* Aligns the text to the left inside the box */
+  margin: 0; /* Reset margin for <pre> to align properly inside its container */
+}
