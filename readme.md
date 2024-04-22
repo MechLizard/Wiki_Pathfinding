@@ -53,8 +53,9 @@ file can be imported significantly faster and is significantly smaller at ~16GB 
 ### Tools
 TODO: Fill this out more. Tools/Languages/APIs/Libraries
 
-C++ was used as the backend to handle the article objects and run the pathfinding algorithm.
-React is used on the front-end to interact with the user and display the results.
+- C++ was used as the backend to handle the article objects and run the pathfinding algorithm.
+- Vite and React is used on the front-end to interact with the user and display the results 
+- On the back-end we utilized a Nodejs server with an express api that call on the C++ Addon file to run and compile the c++ code.
 
 ## Algorithms Implemented
 
@@ -116,9 +117,9 @@ TODO: Flesh out Mohamad and Belal's contributions.
 
 - Izzy: Created file handling and data structure; created WikiImporter and Article classes.
   Administrative work for deliverables
-- Mohamad: Front-end interface with React. Work with Belal to implement the API with the C++ backend.
+- Mohamad: Worked with Belal to implement the styling of teh front-end.
   Implemented the BFS and DFS algorithms.
-- Belal: Back-end for C++. Connecting the different pieces together and working with Mohamad to implement an API for the React front-end.
+- Belal: Front-end with vite and react and Back-end with Nodejs with C++ Addon. Connecting the different pieces together and working with Mohamad to style teh front-end.
 
 ## Analysis
 TODO: Any changes the group made after the proposal? The rationale behind the changes.
@@ -212,6 +213,9 @@ Izzy:
 - Familiarized myself with Regex to identify and extract important items from text.
 
 Belal:
+- The more langauges and libraries you are using will require more configurations and it is easy to lose track of what frameworks/languages are running on so it is best to keep a small amount of languages used.
+- How to run a backend and front-end simultaneously
+- Familiarized myself with React, Nodejs, express api, and C++ Addon
 
 Mohamad:
 - Became more experienced with frontend development. utilized HTML and CSS to structure and style the website's elements. Learning how to use CSS rules to customize the appearance of text, buttons, images, and other UI components.
