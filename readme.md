@@ -193,6 +193,9 @@ Izzy:
 - Familiarized myself with Regex to identify and extract important items from text.
 
 Belal:
+- The more langauges and libraries you are using will require more configurations and it is easy to lose track of what frameworks/languages are running on so it is best to keep a small amount of languages used.
+- How to run a backend and front-end simultaneously
+- Familiarized myself with React, Nodejs, express api, and C++ Addon
 
 Mohamad:
 
