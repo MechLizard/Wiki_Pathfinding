@@ -19,7 +19,7 @@ It is said that on wikipedia any two articles are connected through eachothers l
 - Unzip article.zip in Wiki_Pathfinding/backend 
 - The create-react-app branch contains the Vite and Nodejs server directories while the master contains the c++ source files
 
-## Istalling Nodejs and npm
+## Installing Nodejs and npm
 - Start by checking out the nodejs download website to download nodejs and npm. https://nodejs.org/en/download
 - Open the terminal into the Wiki_Pathfinding folder you cloned and then cd into the backend folder like this: "cd .\wiki_pathfinding_app\"
 - Then run "npm install"
