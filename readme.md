@@ -9,6 +9,9 @@ Project repo: https://github.com/MechLizard/Wiki_Pathfinding
 
 Project Video: https://www.youtube.com/watch?v=FqtkWeINUo0
 
+# Overview
+It is said that on wikipedia any two articles are connected through eachothers links and it is possible to get to the other article without having to use a search bar. This web app is an implmentation of a Wiki Game Solver that uses BFS and DFS to search for paths between two articles on wikipedia. It uses Vite + React on the front-end, and on the back-end it uses Nodejs and C++ Addon to run the c++ code for the searches.
+
 # How To Set up Wiki Pathfinding App
 
 ## Getting the files and code
