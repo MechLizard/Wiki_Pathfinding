@@ -15,7 +15,7 @@ It is said that on wikipedia any two articles are connected through eachothers l
 # How To Set up Wiki Pathfinding App
 
 ## Getting the files and code
-- STart by moving over to the create-react-app branch and clone it in Visual Studio Code
+- Start by moving over to the create-react-app branch and clone it in Visual Studio Code
 - Unzip article.zip in Wiki_Pathfinding/backend 
 - The create-react-app branch contains the Vite and Nodejs server directories while the master contains the c++ source files
 
