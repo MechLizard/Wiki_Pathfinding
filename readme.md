@@ -19,7 +19,7 @@ TODO: Link to video demo
 ## istalling Nodejs and npm
 - Start by checking out the nodejs download website to download nodejs and npm. https://nodejs.org/en/download
 - Open the terminal into the Wiki_Pathfinding folder you cloned and then cd into the backend folder like this: "cd .\wiki_pathfinding_app\"
-- Then run "npm instal"
+- Then run "npm install"
 
 ### Running it
 - The project can be ran by going to the wiki_pathfinding_app with "cd wiki_pathfinding_app"
