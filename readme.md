@@ -7,7 +7,7 @@ Group Members:
 
 Project repo: https://github.com/MechLizard/Wiki_Pathfinding
 
-TODO: Link to video demo
+Project Video: https://www.youtube.com/watch?v=FqtkWeINUo0
 
 # How To Set up Wiki Pathfinding App
 
